@@ -1,12 +1,25 @@
 // Place your key bindings in this file to override the defaults
 
+/*  You can configure whichever keys shortcuts you like by changing the key value. These are just ones that I like to use.
+    Reminder - Some shortcuts are already defined by VSC by default.
+    ````````````````````````````````````````````````````````````````
+    ctrl + shift + s = bound to File: Save as.                              It conflicts with my switch statement creator
+    ctrl + shift + r = bound to refactor.                                   It conflicts with my require statement generator
+    ctrl + z =         bound to undo previous action
+    ctrl + shift + z = bound to redo action
+    ctrl + shift + v = bound to paste selection into terminal
+    ctrl + shift + f = bound to search a file in your directory
+
+    ctrl + shift + w = bound to close your VSC window !!! DANGEROUS !!! I recommend to remove it from your binds via preferences/keyboard shortcuts
+*/
+
 [
   {
     "description": "Creates a blank console.log(); and places your cursor inside the brackets. If text is selected, it wraps the selection",
     "key": "ctrl+shift+c",
     "command": "editor.action.insertSnippet",
     "when": "editorTextFocus",
-    "args": {"snippet": "console.log(${TM_SELECTED_TEXT}$1)$2;"
+    "args": {"snippet": "console.log(${TM_SELECTED_TEXT}$1);"
       }
   },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   {
@@ -15,12 +28,20 @@
     "command": "editor.action.insertSnippet",
     "when": "editorTextFocus",
     "args": {
-        "snippet": "${${TM_SELECTED_TEXT}$1}$2"
+        "snippet": "${${TM_SELECTED_TEXT}$1}"
     }
-  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++   
+  {
+    "description": "Generates a console.log() for checking variable properties",
+    "key": "ctrl+shift+alt+c",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus",
+    "args": {"snippet": "console.log(`${1:variableToCheck} is: `, ${1:variableToCheck});"
+      }
+  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
   {
     "description": "Creates a template for a function expression",
-    "key": "ctrl+shift+r",
+    "key": "ctrl+shift+e",
     "command": "editor.action.insertSnippet",
     "args": {
         "snippet": "const ${1:functionName} = function(${2:parameters}) {\n\t${3:// Your code here}\n};"
@@ -81,5 +102,14 @@
     "args": {
         "snippet": "switch (${1:expression}) {\n\tcase ${2:value1}:\n\t\t${3:// Your code here}\n\t\tbreak;\n\tcase ${4:value2}:\n\t\t${5:// Your code here}\n\t\tbreak;\n\tdefault:\n\t\t${6:// Your code here}\n}"
     }
-  } 
+  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  {
+    "description": "Creates a template for module import require statement",
+    "key": "ctrl+shift+r",
+    "command": "editor.action.insertSnippet",
+    "args": {
+        "snippet": "const ${1:importName} = require('./${2:pathToModule}');"
+    }
+}
+
 ]
