@@ -25,5 +25,61 @@
     "args": {
         "snippet": "const ${1:functionName} = function(${2:parameters}) {\n\t${3:// Your code here}\n};"
     }
-  }
+  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  {
+    "description": "Creates a template for an if -> else if -> else statement chain",
+    "key": "ctrl+shift+i",
+    "command": "editor.action.insertSnippet",
+    "args": {
+      "snippet": "if (${1:condition1}) {\n\t// Run this code\n\t\n} else if (${3:condition2}) {\n\t// If that doesnt resolve, run this instead\n\t\n} else {\n\t// Otherwise, run this code\n\t\n}"
+    }
+  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  {
+    "description": "Creates a template for a C-style for loop",
+    "key": "ctrl+shift+l",
+    "command": "editor.action.insertSnippet",
+    "args": {
+        "snippet": "for (let i = ${1:0}; i < ${2:array}.length; i++) {\n\t${3:// Run this code while the loop condition resolves as true}\n}"
+    }
+  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  {
+    "description": "Creates a template for creating an object literal",
+    "key": "ctrl+shift+o",
+    "command": "editor.action.insertSnippet",
+    "args": {
+        "snippet": "const ${1:objectName} = {\n\t${2:key}: ${3:value},\n\t${4:key2}: ${5:value2}\n};"
+    }
+  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  {
+    "description": "Creates a template for initializing a promise",
+    "key": "ctrl+shift+p",
+    "command": "editor.action.insertSnippet",
+    "args": {
+        "snippet": "const ${1:promiseName} = new Promise((resolve, reject) => {\n\t${2:// Your code here}\n});"
+    }
+  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  { 
+    "description": "Creates a template for a completing a promise",
+    "key": "ctrl+shift+[",
+    "command": "editor.action.insertSnippet",
+    "args": {
+        "snippet": "${1:promiseName}.then((${2:goodResult}) => {\nconsole.log('Promise Resolved:', ${2:goodResult});\n}).catch((error, ${3:badResult}) => {\nconsole.error('Promise Rejected:', error.message);\n});"
+    }   
+  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  {
+    "description": "Creates a template for a ternary operation",
+    "key": "ctrl+shift+t",
+    "command": "editor.action.insertSnippet",
+    "args": {
+        "snippet": "${1:condition} ? ${2:expressionIfTrue} : ${3:expressionIfFalse}"
+    }
+  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  {
+    "description": "Creates a template for a switch statement",
+    "key": "ctrl+shift+s", 
+    "command": "editor.action.insertSnippet",
+    "args": {
+        "snippet": "switch (${1:expression}) {\n\tcase ${2:value1}:\n\t\t${3:// Your code here}\n\t\tbreak;\n\tcase ${4:value2}:\n\t\t${5:// Your code here}\n\t\tbreak;\n\tdefault:\n\t\t${6:// Your code here}\n}"
+    }
+  } 
 ]
