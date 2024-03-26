@@ -1,0 +1,29 @@
+// Place your key bindings in this file to override the defaults
+
+[
+  {
+    "description": "Creates a blank console.log(); and places your cursor inside the brackets. If text is selected, it wraps the selection",
+    "key": "ctrl+shift+c",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus",
+    "args": {"snippet": "console.log(${TM_SELECTED_TEXT}$1)$2;"
+      }
+  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  {
+    "description": "Creates a blank template literal ${} and places your cursor between the curly-braces. If text is selected, it wraps the selection",
+    "key": "ctrl+shift+x",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus",
+    "args": {
+        "snippet": "${${TM_SELECTED_TEXT}$1}$2"
+    }
+  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+  {
+    "description": "Creates a template for a function expression",
+    "key": "ctrl+shift+r",
+    "command": "editor.action.insertSnippet",
+    "args": {
+        "snippet": "const ${1:functionName} = function(${2:parameters}) {\n\t${3:// Your code here}\n};"
+    }
+  }
+]
