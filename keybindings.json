@@ -1,27 +1,27 @@
 // Place your key bindings in this file to override the defaults
 
-/*  You can configure whichever keys shortcuts you like by changing the key value. These are just ones that I like to use.
-    Reminder - Some shortcuts are already defined by VSC by default.
-    ````````````````````````````````````````````````````````````````
-    ctrl + shift + s = bound to File: Save as.                              It conflicts with my switch statement creator
-    ctrl + shift + r = bound to refactor.                                   It conflicts with my require statement generator
-    ctrl + z =         bound to undo previous action
-    ctrl + shift + z = bound to redo action
-    ctrl + shift + v = bound to paste selection into terminal
-    ctrl + shift + f = bound to search a file in your directory
 
-    ctrl + shift + w = bound to close your VSC window !!! DANGEROUS !!! I recommend to remove it from your binds via preferences/keyboard shortcuts
+/*  You can configure whichever keys shortcuts you like by changing the "key" value. These are just ones that I like to use.
+    Note - Some useful shortcuts are already defined by VSC by default.
+    ````````````````````````````````````````````````````````````````````
+    ctrl + shift + s = already assigned to File: Save as.                            My switch statement creator overrides this
+    ctrl + shift + r = already assigned to refactor.                                 My require statement creator overrides this
+    ctrl + z         = already assigned to undo previous action                      Useful to keep unmodified
+    ctrl + shift + z = already assigned to redo action                               Useful to keep unmodified
+    ctrl + shift + v = already assigned to paste selection into terminal             Useful to keep unmodified
+    ctrl + shift + f = already assigned to search a file in your directory           Useful to keep unmodified
+    ctrl + shift + w = already assigned to close your VSC window without warning     Its really annoying, I recommend to remove it from your bindings via preferences/keyboard shortcuts
 */
-
+ 
 [
-  {
+  {//+001+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     "description": "Creates a blank console.log(); and places your cursor inside the brackets. If text is selected, it wraps the selection",
     "key": "ctrl+shift+c",
     "command": "editor.action.insertSnippet",
     "when": "editorTextFocus",
     "args": {"snippet": "console.log(${TM_SELECTED_TEXT}$1);"
       }
-  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  },//+002+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   {
     "description": "Creates a blank template literal ${} and places your cursor between the curly-braces. If text is selected, it wraps the selection",
     "key": "ctrl+shift+x",
@@ -30,7 +30,7 @@
     "args": {
         "snippet": "${${TM_SELECTED_TEXT}$1}"
     }
-  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++   
+  },//+003+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   {
     "description": "Generates a console.log() for checking variable properties",
     "key": "ctrl+shift+alt+c",
@@ -38,23 +38,23 @@
     "when": "editorTextFocus",
     "args": {"snippet": "console.log(`${1:variableToCheck} is: `, ${1:variableToCheck});"
       }
-  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+  },//+004+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   {
     "description": "Creates a template for a function expression",
     "key": "ctrl+shift+e",
     "command": "editor.action.insertSnippet",
     "args": {
-        "snippet": "const ${1:functionName} = function(${2:parameters}) {\n\t${3:// Your code here}\n};"
+        "snippet": "const ${1:functionName} = function(${2:parameters}) {\n\t${3:// Function code goes here}\n};"
     }
-  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  },//+005+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   {
     "description": "Creates a template for an if -> else if -> else statement chain",
     "key": "ctrl+shift+i",
     "command": "editor.action.insertSnippet",
     "args": {
-      "snippet": "if (${1:condition1}) {\n\t// Run this code\n\t\n} else if (${3:condition2}) {\n\t// If that doesnt resolve, run this instead\n\t\n} else {\n\t// Otherwise, run this code\n\t\n}"
+      "snippet": "if (${1:condition1}) {\n\t${2:// Run this code}\n\t\n} else if (${3:condition2}) {\n\t${4:// If that doesnt resolve, run this instead}\n\t\n} else {\n\t${5:// Otherwise, run this code}\n\t\n}"
     }
-  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  },//+006+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   {
     "description": "Creates a template for a C-style for loop",
     "key": "ctrl+shift+l",
@@ -62,7 +62,7 @@
     "args": {
         "snippet": "for (let i = ${1:0}; i < ${2:array}.length; i++) {\n\t${3:// Run this code while the loop condition resolves as true}\n}"
     }
-  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  },//+007+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   {
     "description": "Creates a template for creating an object literal",
     "key": "ctrl+shift+o",
@@ -70,15 +70,15 @@
     "args": {
         "snippet": "const ${1:objectName} = {\n\t${2:key}: ${3:value},\n\t${4:key2}: ${5:value2}\n};"
     }
-  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  },//+008+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   {
     "description": "Creates a template for initializing a promise",
     "key": "ctrl+shift+p",
     "command": "editor.action.insertSnippet",
     "args": {
-        "snippet": "const ${1:promiseName} = new Promise((resolve, reject) => {\n\t${2:// Your code here}\n});"
+        "snippet": "const ${1:promiseName} = new Promise((resolve, reject) => {\n\t// Your code here\n\n\tif (${2:metCondition}){\n\tresolve(${3:passGoodResult});\n\t}\n\telse if (${4:failedCondition}){\n\treject(error, ${5:passBadResult});\n}\n});"
     }
-  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  },//+009+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   { 
     "description": "Creates a template for a completing a promise",
     "key": "ctrl+shift+[",
@@ -86,7 +86,7 @@
     "args": {
         "snippet": "${1:promiseName}.then((${2:goodResult}) => {\nconsole.log('Promise Resolved:', ${2:goodResult});\n}).catch((error, ${3:badResult}) => {\nconsole.error('Promise Rejected:', error.message);\n});"
     }   
-  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  },//+010+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   {
     "description": "Creates a template for a ternary operation",
     "key": "ctrl+shift+t",
@@ -94,7 +94,7 @@
     "args": {
         "snippet": "${1:condition} ? ${2:expressionIfTrue} : ${3:expressionIfFalse}"
     }
-  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  },//+011+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   {
     "description": "Creates a template for a switch statement",
     "key": "ctrl+shift+s", 
@@ -102,7 +102,7 @@
     "args": {
         "snippet": "switch (${1:expression}) {\n\tcase ${2:value1}:\n\t\t${3:// Your code here}\n\t\tbreak;\n\tcase ${4:value2}:\n\t\t${5:// Your code here}\n\t\tbreak;\n\tdefault:\n\t\t${6:// Your code here}\n}"
     }
-  },//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  },//+012+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   {
     "description": "Creates a template for module import require statement",
     "key": "ctrl+shift+r",
@@ -110,6 +110,13 @@
     "args": {
         "snippet": "const ${1:importName} = require('./${2:pathToModule}');"
     }
-}
-
-]
+  },//+013+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  {
+    "description": "Wraps any selected text in angled brackets for HTML and markdown. <> and </>",
+    "key": "ctrl+shift+h",
+    "command": "editor.action.insertSnippet",
+    "args": {
+        "snippet": "<$TM_SELECTED_TEXT></$TM_SELECTED_TEXT>"
+    }
+  } 
+] // handy-vsc-snippets v5. 2024_APR_03 release  src: https://github.com/ChrisPytel/handy-vsc-snippets
