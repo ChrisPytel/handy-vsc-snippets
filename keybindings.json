@@ -12,41 +12,68 @@
     ctrl + shift + f = already assigned to search a file in your directory           Useful to keep unmodified
     ctrl + shift + w = already assigned to close your VSC window without warning     Its really annoying, I recommend to remove it from your bindings via preferences/keyboard shortcuts
 */
- 
+
 [
-  {//+001+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  { //JS 01 ---------------------------------------------------------------------------------------
     "description": "Creates a blank console.log(); and places your cursor inside the brackets. If text is selected, it wraps the selection",
     "key": "ctrl+shift+c",
     "command": "editor.action.insertSnippet",
     "when": "editorTextFocus",
-    "args": {"snippet": "console.log(${TM_SELECTED_TEXT}$1);"
-      }
-  },//+002+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    "args": {
+      "snippet": "console.log(${TM_SELECTED_TEXT}$1);"
+    }
+  },//JS 02 ---------------------------------------------------------------------------------------
+  {
+    "description": "Generates a console.log() for checking a variable contents",
+    "key": "ctrl+shift+alt+c",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus",
+    "args": {
+      "snippet": "console.log(`Our ${1:variableToCheck} is: `, ${1:variableToCheck});"
+    }
+  }, //JS 03 --------------------------------------------------------------------------------------
+  {
+    "description": "Generates a console.log() for checking a variables datatype",
+    "key": "ctrl+shift+d",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus",
+    "args": {
+      "snippet": "console.log(`Datatype of ${1:variableToCheck} is: `, typeof ${1:variableToCheck});"
+    }
+  },//JS 04 ---------------------------------------------------------------------------------------
   {
     "description": "Creates a blank template literal ${} and places your cursor between the curly-braces. If text is selected, it wraps the selection",
     "key": "ctrl+shift+x",
     "command": "editor.action.insertSnippet",
     "when": "editorTextFocus",
     "args": {
-        "snippet": "${${TM_SELECTED_TEXT}$1}"
+      "snippet": "${${TM_SELECTED_TEXT}$1}"
     }
-  },//+003+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  },//JS 05 ---------------------------------------------------------------------------------------
   {
-    "description": "Generates a console.log() for checking variable properties",
-    "key": "ctrl+shift+alt+c",
+    "description": "Creates a template for creating an object literal",
+    "key": "ctrl+shift+o",
     "command": "editor.action.insertSnippet",
-    "when": "editorTextFocus",
-    "args": {"snippet": "console.log(`${1:variableToCheck} is: `, ${1:variableToCheck});"
-      }
-  },//+004+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    "args": {
+      "snippet": "const ${1:objectName} = {\n\t${2:key}: ${3:value},\n\t${4:key2}: ${5:value2}\n};"
+    }
+  },//JS 06 ---------------------------------------------------------------------------------------
   {
     "description": "Creates a template for a function expression",
     "key": "ctrl+shift+e",
     "command": "editor.action.insertSnippet",
     "args": {
-        "snippet": "const ${1:functionName} = function(${2:parameters}) {\n\t${3:// Function code goes here}\n};"
+      "snippet": "const ${1:functionName} = function(${2:parameters}) {\n\t${3:// Function code goes here}\n};"
     }
-  },//+005+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  },//JS 07 ---------------------------------------------------------------------------------------
+  {
+    "description": "Creates a template for a C-style loop",
+    "key": "ctrl+shift+k",
+    "command": "editor.action.insertSnippet",
+    "args": {
+      "snippet": "for (let i = ${1:0}; i < ${2:array}.length; i++) {\n\t${3:// Run this code while the loop condition resolves as true}\n}"
+    }
+  },//JS 08 ---------------------------------------------------------------------------------------
   {
     "description": "Creates a template for an if -> else if -> else statement chain",
     "key": "ctrl+shift+i",
@@ -54,23 +81,39 @@
     "args": {
       "snippet": "if (${1:condition1}) {\n\t${2:// Run this code}\n\t\n} else if (${3:condition2}) {\n\t${4:// If that doesnt resolve, run this instead}\n\t\n} else {\n\t${5:// Otherwise, run this code}\n\t\n}"
     }
-  },//+006+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  },//JS 09 ---------------------------------------------------------------------------------------
   {
-    "description": "Creates a template for a C-style for loop",
-    "key": "ctrl+shift+l",
+    "description": "Creates a template for a ternary operation",
+    "key": "ctrl+shift+t",
     "command": "editor.action.insertSnippet",
     "args": {
-        "snippet": "for (let i = ${1:0}; i < ${2:array}.length; i++) {\n\t${3:// Run this code while the loop condition resolves as true}\n}"
+      "snippet": "${1:condition} ? ${2:expressionIfTrue} : ${3:expressionIfFalse}"
     }
-  },//+007+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  },//JS 10 ---------------------------------------------------------------------------------------
   {
-    "description": "Creates a template for creating an object literal",
-    "key": "ctrl+shift+o",
+    "description": "Creates a template for a switch statement",
+    "key": "ctrl+shift+s", 
     "command": "editor.action.insertSnippet",
     "args": {
-        "snippet": "const ${1:objectName} = {\n\t${2:key}: ${3:value},\n\t${4:key2}: ${5:value2}\n};"
+      "snippet": "switch (${1:expression}) {\n\tcase ${2:value1}:\n\t\t${3:// Your code here}\n\t\tbreak;\n\tcase ${4:value2}:\n\t\t${5:// Your code here}\n\t\tbreak;\n\tdefault:\n\t\t${6:// Your code here}\n}"
     }
-  },//+008+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  },//JS 11 ---------------------------------------------------------------------------------------
+  {
+    "description": "Creates a template for an array.map method statement",
+    "key": "ctrl+shift+m",
+    "command": "editor.action.insertSnippet",
+    "args": {
+      "snippet": "const ${1:newArrayName} = ${2:originalArray}.map(${3:element} => {\n\treturn ${3:element} ${4://Some operation to do over each element};\n});"
+    }
+  },//JS 12 ---------------------------------------------------------------------------------------
+    {
+    "description": "Creates a template for module import require statement",
+    "key": "ctrl+shift+r",
+    "command": "editor.action.insertSnippet",
+    "args": {
+        "snippet": "const ${1:importName} = require('./${2:pathToModule}');"
+    }
+  },//JS 13 ---------------------------------------------------------------------------------------
   {
     "description": "Creates a template for initializing a promise",
     "key": "ctrl+shift+p",
@@ -78,39 +121,42 @@
     "args": {
         "snippet": "const ${1:promiseName} = new Promise((resolve, reject) => {\n\t// Your code here\n\n\tif (${2:metCondition}){\n\tresolve(${3:passGoodResult});\n\t}\n\telse if (${4:failedCondition}){\n\treject(error, ${5:passBadResult});\n}\n});"
     }
-  },//+009+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  },//JS 14 ---------------------------------------------------------------------------------------
   { 
     "description": "Creates a template for a completing a promise",
     "key": "ctrl+shift+[",
     "command": "editor.action.insertSnippet",
     "args": {
         "snippet": "${1:promiseName}.then((${2:goodResult}) => {\nconsole.log('Promise Resolved:', ${2:goodResult});\n}).catch((error, ${3:badResult}) => {\nconsole.error('Promise Rejected:', error.message);\n});"
-    }   
-  },//+010+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    }
+  },//JS 15 ---------------------------------------------------------------------------------------
+  
+
+    //placeholder   15. Generate a template for a returning promise chain *coming soon*
+
+
+  //JS 16 ---------------------------------------------------------------------------------------
   {
-    "description": "Creates a template for a ternary operation",
-    "key": "ctrl+shift+t",
+    "description": "Creates a template for an AJAX request for async operations",
+    "key": "ctrl+shift+j",
     "command": "editor.action.insertSnippet",
     "args": {
-        "snippet": "${1:condition} ? ${2:expressionIfTrue} : ${3:expressionIfFalse}"
+        "snippet": "$.ajax({\n\turl: `${1:/route}`,\n\tmethod: '${2:GET}',  // HTTP methods are: 'GET', 'POST', 'PUT', 'DELETE'\n\tsuccess: function(${3:dataOnSuccess}){\n\t\tconsole.log(`Our ${3:dataOnSuccess} is: `, ${3:dataOnSuccess});\n\t\t${4:// Code to run on success}\n\n\t},\n\terror: function(error){\n\t\tconsole.error(`$.ajax ${this.method} request error on route: ${this.url}!\\nDetails:`, error);\n\t}\n});"
     }
-  },//+011+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  },//JS 17 ---------------------------------------------------------------------------------------
   {
-    "description": "Creates a template for a switch statement",
-    "key": "ctrl+shift+s", 
+    "description": "Creates a template for a jQuery event listener on an HTML element, select what kind of event you want it to listen to as well",
+    "key": "ctrl+shift+l",
     "command": "editor.action.insertSnippet",
     "args": {
-        "snippet": "switch (${1:expression}) {\n\tcase ${2:value1}:\n\t\t${3:// Your code here}\n\t\tbreak;\n\tcase ${4:value2}:\n\t\t${5:// Your code here}\n\t\tbreak;\n\tdefault:\n\t\t${6:// Your code here}\n}"
+        "snippet": "$('${1:.HTML-element}').on('${2:click}', function(event){\n\tconsole.log(`Event listener registered a ${2:click} on our ${1:.HTML-element} element!`);\n\tconsole.log(`Details on this event:\\n`, event);\n\n\t// Code that runs on event listener trigger\n\tevent.preventDefault(); // Optional, delete it if not required\n\n\n});"
     }
-  },//+012+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  {
-    "description": "Creates a template for module import require statement",
-    "key": "ctrl+shift+r",
-    "command": "editor.action.insertSnippet",
-    "args": {
-        "snippet": "const ${1:importName} = require('./${2:pathToModule}');"
-    }
-  },//+013+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  },
+
+
+
+
+  //HTML MD 01 ------------------------------------------------------------------------------------
   {
     "description": "Wraps any selected text in angled brackets for HTML and markdown. <> and </>",
     "key": "ctrl+shift+h",
@@ -118,5 +164,51 @@
     "args": {
         "snippet": "<$TM_SELECTED_TEXT></$TM_SELECTED_TEXT>"
     }
-  } 
-] // handy-vsc-snippets v5. 2024_APR_03 release  src: https://github.com/ChrisPytel/handy-vsc-snippets
+  }
+  ,//HTML MD 02 -----------------------------------------------------------------------------------
+  {
+    "description": "Wraps any selected text in opening and closing angled brackets for HTML and markdown and lets you define the element tag.",
+    "key": "ctrl+shift+w",
+    "command": "editor.action.insertSnippet",
+    "args": {
+        "snippet": "<${1:elementType}>$TM_SELECTED_TEXT</${1:elementType}>"
+    }
+  },
+
+
+
+
+  //CSS 01 ----------------------------------------------------------------------------------------
+  {
+    "description": "Creates a border around the HTML element, useful for determining the element size and its child element spacing",
+    "key": "ctrl+shift+b",
+    "command": "editor.action.insertSnippet",
+    "args": {
+        "snippet": " border: 3px dashed ${1:limegreen;}>"
+    }
+  },//CSS 02 --------------------------------------------------------------------------------------
+  {
+    "description": "Applies display:flex to make a flex container on the element, and centers the child elements vertically and horizontally",
+    "key": "ctrl+shift+f",
+    "command": "editor.action.insertSnippet",
+    "args": {
+        "snippet": "display: flex;\njustify-content: center;  /* Aligns child elements horizontally (left and right) */\nalign-items: center;      /* Aligns child elements vertically (up and down) */"
+    }
+  },
+
+
+
+
+  // Disables default shortcuts that are annoying and close VSC without warning -------------------
+  {
+    "key": "ctrl+shift+w",
+    "command": "-workbench.action.closeWindow"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "-workbench.action.closeActiveEditor"
+  }
+] 
+
+// handy-vsc-snippets v4. 2024_MAR_31 Easter Update
+// src: https://github.com/ChrisPytel/handy-vsc-snippets

@@ -1,7 +1,13 @@
 # Handy VSC Snippets
-A handful of useful Visual Studio Code `(VSC)` scripts to make your coding faster. <br> <br> Features a handful of expressions and lines of logic that we've done loads of times,
+A handful of useful Visual Studio Code `(VSC)` scripts to make your coding faster. <br> <br> Features 20 useful expressions and lines of logic that we've done loads of times.
 
 
+Leave me a Star on Github if you enjoyed this 
+
+<!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/ChrisPytel/handy-vsc-snippets" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star ChrisPytel/handy-vsc-snippets on GitHub">Star</a>
+
+https://buttons.github.io/
 
 <br><br><br>
 
@@ -12,23 +18,63 @@ Adding this scripting functionality to your VSC  is straight forward.
 
 2. Select all of the script text and copy it to your clipboard. <i>(Control + A and Control + C)</i>
 
-3. Open your VSC go to your command bar and type  `>Preferences: Open Keyboard Shortcuts (JSON)`
+3. Open your VSC go to your command bar and type:  `>Preferences: Open Keyboard Shortcuts (JSON)`
 
-4. Click the dropdown option that says `Preferences: Open Keyboard Shortcuts (JSON)`. <br>Don't accidentally open `Preferences: Open Default Keyboard Shortcuts (JSON)` and modify its contents. <i> (You won't have a good time.)</i>
+4. Click the dropdown option that says `Preferences: Open Keyboard Shortcuts (JSON)`. <br>Don't accidentally open `Preferences: Open Default Keyboard Shortcuts (JSON)` and modify its contents. <br><i>(You won't have a good time.)</i>
 
-5. Paste what we had copied earlier in the clipboard into your local keybindings.json
+5. Paste what we had copied earlier in the clipboard into your local keybindings.json file and save it.
 
 6. <b>Installation complete.</b> Go and try out some scripts!
+<br><br>
+
+<b>Optional</b> - Its probably a good idea to unbind the default `Control + Shift + W` shortcut. Its assigned to close your VSC window without warning which is really annoying. To do so, go to:
+
+1. File -> Preferences -> Keyboard Shortcuts
+2. In the search bar at the top type: `Close Window`
+3. Right click the command and select Remove Keybinding
+4. Optional: You can do the same for: `View: Close Editor`
 <br><br><br>
 
 # List of scripts in this library
-Below is a list of scripts and their default shortcut. You can configure which buttons they are bound to in your `keybindings.json` file.
+Below is a list of scripts and their default shortcut. You can configure which buttons they are assigned to in your `keybindings.json` file by changing what the "key" value is defined as.
 
-Scripts 
+Click a link below to jump to a visual preview of each script
+
+### JavaScript Scripts
+
+  1. Insert blank console.log()
+  2. Insert console.log() for checking variable assignment
+  3. Insert console.log() for checking variable datatype
+  4. Insert blank template literal
+  5. Creates a template for an object literal
+  6. Creates a template for a function expression  
+  7. Creates a C-style loop template
+
+  8. Generate a if / else if / else statement chain
+  9. Generates a template for a ternary operation
+  10. Generates a template for a switch statement
+  11. Generates a template for an array.map() method  
+
+  12. Generates a template for module import require statement
+  13. Generate a template for setting up a promise
+  14. Generate a template for completing a promise
+  15. Generate a template for a returning promise chain *coming soon*
+
+  16. Generates a template for a jQuery event listener
+  17. Generates a template for an AJAX request
+
+
+### HTML / Markdown Scripts
+  1. Easy tag creation
+  2. Wrap a selection and assigns a tag to it
+
+### CSS Scripts
+  1. Quick border generator for reference
+  2. Flexbox container and child element centering
 
 
 ----------------------------------------
-### Console.log
+### 01 - Console.log()
  <b> Shortcut =</b> `Control + Shift + C`<br>
 
 Creates a blank console.log(); and places your cursor inside the brackets.
@@ -78,13 +124,14 @@ if (`condition1`) {
 }
 
 
-test
 
 
 
-
-
-
-### Check with cohort peeps
+### Secret bonus shortcuts
 ----------------------------------------
-I'm experimenting with writing more scripts for faster coding and I'm checking with people for their input. Is there anything that you write a lot of that you find annoying to type out often?
+Since you made it to the bottom, heres some extra shortcuts that are built into VSC by default:
+
+
+Type `fore` and press tab   = Generates a template .forEach() array method<br>
+Type `fori` and press tab   = Generates a template for...in loop  (useful when iterating through objects)<br>
+Type `foro` and press tab   = Generates a template for...of loop  (useful when iterating through arrays)<br>
