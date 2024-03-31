@@ -2,17 +2,14 @@
 A handful of useful Visual Studio Code `(VSC)` scripts to make your coding faster. <br> <br> Features 20 useful expressions and lines of logic that we've done loads of times.
 
 
-Leave me a Star on Github if you enjoyed this 
+Please leave me a Star on my Repo if you found these scripts useful
 
-<!-- Place this tag where you want the button to render. -->
-<a class="github-button" href="https://github.com/ChrisPytel/handy-vsc-snippets" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star ChrisPytel/handy-vsc-snippets on GitHub">Star</a>
 
-https://buttons.github.io/
 
 <br><br><br>
 
 # Installation
-Adding this scripting functionality to your VSC  is straight forward. 
+Adding this scripting functionality to your VSC is quite simple. No need to run npm. 
 
 1. Go to https://raw.githubusercontent.com/ChrisPytel/handy-vsc-snippets/main/keybindings.json
 
@@ -27,12 +24,14 @@ Adding this scripting functionality to your VSC  is straight forward.
 6. <b>Installation complete.</b> Go and try out some scripts!
 <br><br>
 
-<b>Optional</b> - Its probably a good idea to unbind the default `Control + Shift + W` shortcut. Its assigned to close your VSC window without warning which is really annoying. To do so, go to:
+<!--  version 4 UPDATE - Handled in keybindings.json script at the bottom, disables Control + Shift + W automatically.
+
+ <b>Optional</b> - Its probably a good idea to unbind the default `Control + Shift + W` shortcut. Its assigned to close your VSC window without warning which is really annoying. To do so, go to:
 
 1. File -> Preferences -> Keyboard Shortcuts
 2. In the search bar at the top type: `Close Window`
 3. Right click the command and select Remove Keybinding
-4. Optional: You can do the same for: `View: Close Editor`
+4. Optional: You can do the same for: `View: Close Editor`   -->
 <br><br><br>
 
 # List of scripts in this library
