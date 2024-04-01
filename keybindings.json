@@ -141,7 +141,7 @@
     "key": "ctrl+shift+j",
     "command": "editor.action.insertSnippet",
     "args": {
-        "snippet": "$.ajax({\n\turl: `${1:/route}`,\n\tmethod: '${2:GET}',  // HTTP methods are: 'GET', 'POST', 'PUT', 'DELETE'\n\tsuccess: function(${3:dataOnSuccess}){\n\t\tconsole.log(`Our ${3:dataOnSuccess} is: `, ${3:dataOnSuccess});\n\t\t${4:// Code to run on success}\n\n\t},\n\terror: function(error){\n\t\tconsole.error(`$.ajax ${this.method} request error on route: ${this.url}!\\nDetails:`, error);\n\t}\n});"
+        "snippet": "$.ajax({\n\turl: `${1:/route}`,\n\tmethod: '${2:GET}',  // HTTP methods are: 'GET', 'POST', 'PUT', 'DELETE'\n\tsuccess: function(dataOnSuccess){\n\t\tconsole.log(`$.ajax GET request came through. Data is: `, dataOnSuccess);\n\t\t// Code to run on successful GET request...\n\n\t\t//If using a POST request\n\t\tconsole.log(`$.ajax POST the following data to our '${this.url}' route:\\n`, this.data);\n\t},\n\terror: function(error){\n\t\tconsole.error(`$.ajax ${this.method} request error on route: '${this.url}'\\nDetails:`, error);\n\t}\n});"
     }
   },//JS 17 ---------------------------------------------------------------------------------------
   {
@@ -210,5 +210,4 @@
   }
 ] 
 
-// handy-vsc-snippets v4. 2024_MAR_31 Easter Update
-// src: https://github.com/ChrisPytel/handy-vsc-snippets
+// src: https://github.com/ChrisPytel/handy-vsc-snippets    handy-vsc-snippets v4.1    2024_MAR_31 Easter Update
