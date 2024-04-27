@@ -3,18 +3,17 @@
 
 /*  You can configure whichever keys shortcuts you like by changing the "key" value.
     Note - Some useful shortcuts are already defined in VSC by default.
-    ````````````````````````````````````````````````````````````````````
-    ctrl + shift + s = already assigned to File: Save as.                            My switch statement creator overrides this   [JS 10]
-    ctrl + shift + r = already assigned to refactor.                                 My require statement creator overrides this  [JS 12]
-    ctrl + shift + f = already assigned to search a file in your directory           My flexbox centering script overrides this   [CSS 02]
-    ctrl + shift + z = already assigned to redo action                               Useful to keep unmodified
-    ctrl + z         = already assigned to undo previous action                      Useful to keep unmodified
+    ctrl + shift + z = already assigned to redo action                Useful to keep unmodified
+    ctrl + z         = already assigned to undo previous action       Useful to keep unmodified
 */
 
 [
   { //JS 01 ---------------------------------------------------------------------------------------
     "description": "Creates a blank console.log(); and places your cursor inside the brackets. If text is selected, it wraps the selection",
-    "key": "ctrl+shift+c",
+    "key": "ctrl+shift+c",  //for windows users
+      "mac": {
+        "key": "cmd+shift+c" // for mac users
+      },
     "command": "editor.action.insertSnippet",
     "when": "editorTextFocus",
     "args": {
@@ -23,7 +22,10 @@
   },//JS 02 ---------------------------------------------------------------------------------------
   {
     "description": "Generates a console.log() for checking a variable contents",
-    "key": "ctrl+shift+v",
+    "key": "ctrl+shift+v",    //for windows users
+      "mac": {
+        "key": "cmd+shift+v"  // for mac users
+      },
     "command": "editor.action.insertSnippet",
     "when": "editorTextFocus",
     "args": {
@@ -32,7 +34,10 @@
   }, //JS 03 --------------------------------------------------------------------------------------
   {
     "description": "Generates a console.log() with details on a variables datatype, time created, and its contents",
-    "key": "ctrl+shift+d",
+    "key": "ctrl+shift+d",    //for windows users
+      "mac": {
+        "key": "cmd+shift+d"  // for mac users
+      },
     "command": "editor.action.insertSnippet",
     "when": "editorTextFocus",
     "args": {
@@ -41,7 +46,10 @@
   },//JS 04 ---------------------------------------------------------------------------------------
   {
     "description": "Creates a blank template literal ${} and places your cursor between the curly-braces. If text is selected, it wraps the selection",
-    "key": "ctrl+shift+x",
+    "key": "ctrl+shift+x",    //for windows users
+      "mac": {
+        "key": "cmd+shift+x"  // for mac users
+      },
     "command": "editor.action.insertSnippet",
     "when": "editorTextFocus",
     "args": {
@@ -50,7 +58,10 @@
   },//JS 05 ---------------------------------------------------------------------------------------
   {
     "description": "Creates a template for creating an object literal",
-    "key": "ctrl+shift+o",
+    "key": "ctrl+shift+o",    //for windows users
+      "mac": {
+        "key": "cmd+shift+o"  // for mac users
+      },
     "command": "editor.action.insertSnippet",
     "args": {
       "snippet": "const ${1:objectName} = {\n\t${2:key}: ${3:value},\n\t${4:key2}: ${5:value2}\n};"
@@ -58,7 +69,10 @@
   },//JS 06 ---------------------------------------------------------------------------------------
   {
     "description": "Creates a template for a function expression",
-    "key": "ctrl+shift+e",
+    "key": "ctrl+shift+e",    //for windows users
+      "mac": {
+        "key": "cmd+shift+e"  // for mac users
+      },
     "command": "editor.action.insertSnippet",
     "args": {
       "snippet": "const ${1:functionName} = function(${2:parameters}) {\n\t${3:// Function code goes here}\n};"
@@ -66,7 +80,10 @@
   },//JS 07 ---------------------------------------------------------------------------------------
   {
     "description": "Creates a template for a C-style loop",
-    "key": "ctrl+shift+k",
+    "key": "ctrl+shift+k",   //for windows users
+      "mac": {
+        "key": "cmd+shift+k"  // for mac users
+      },
     "command": "editor.action.insertSnippet",
     "args": {
       "snippet": "for (let i = ${1:0}; i < ${2:array}.length; i++) {\n\t${3:// Run this code while the loop condition resolves as true}\n}"
@@ -74,7 +91,10 @@
   },//JS 08 ---------------------------------------------------------------------------------------
   {
     "description": "Creates a template for an if -> else if -> else statement chain",
-    "key": "ctrl+shift+i",
+    "key": "ctrl+shift+i",   //for windows users
+      "mac": {
+        "key": "cmd+shift+i"  // for mac users
+      },
     "command": "editor.action.insertSnippet",
     "args": {
       "snippet": "if (${1:condition1}) {\n\t// Run this code\n\t\n} else if (${2:condition2}) {\n\t// If that doesnt resolve, run this instead\n\t\n} else {\n\t// Otherwise, run this code\n\t\n}"
@@ -82,7 +102,10 @@
   },//JS 09 ---------------------------------------------------------------------------------------
   {
     "description": "Creates a template for a ternary operation",
-    "key": "ctrl+shift+y",
+    "key": "ctrl+shift+y",    //for windows users
+      "mac": {
+        "key": "cmd+shift+y"  // for mac users
+      },
     "command": "editor.action.insertSnippet",
     "args": {
       "snippet": "${1:condition} ? ${2:expressionIfTrue} : ${3:expressionIfFalse}"
@@ -90,7 +113,10 @@
   },//JS 10 ---------------------------------------------------------------------------------------
   {
     "description": "Creates a template for a switch statement",
-    "key": "ctrl+shift+s", 
+    "key": "ctrl+shift+s",    //for windows users
+      "mac": {
+        "key": "cmd+shift+s"  // for mac users
+      },
     "command": "editor.action.insertSnippet",
     "args": {
       "snippet": "switch (${1:expression}) {\n\tcase ${2:value1}:\n\t\t${3:// Your code here}\n\t\tbreak;\n\tcase ${4:value2}:\n\t\t${5:// Your code here}\n\t\tbreak;\n\tdefault:\n\t\t${6:// Your code here}\n}"
@@ -98,7 +124,10 @@
   },//JS 11 ---------------------------------------------------------------------------------------
   {
     "description": "Creates a template for an array.map method statement",
-    "key": "ctrl+shift+m",
+    "key": "ctrl+shift+m",    //for windows users
+      "mac": {
+        "key": "cmd+shift+m"  // for mac users
+      },
     "command": "editor.action.insertSnippet",
     "args": {
       "snippet": "const ${1:newArrayName} = ${2:originalArray}.map(element => {\n\treturn element ${4:/*Some operation to do over each element*/};\n});"
@@ -106,7 +135,10 @@
   },//JS 12 ---------------------------------------------------------------------------------------
     {
     "description": "Creates a template for module import require statement",
-    "key": "ctrl+shift+r",
+    "key": "ctrl+shift+r",    //for windows users
+      "mac": {
+        "key": "cmd+shift+r"  // for mac users
+      },
     "command": "editor.action.insertSnippet",
     "args": {
         "snippet": "const ${1:importName} = require('./${2:pathToModule}');"
@@ -114,7 +146,10 @@
   },//JS 13 ---------------------------------------------------------------------------------------
   {
     "description": "Creates a template for initializing a promise",
-    "key": "ctrl+shift+p",
+    "key": "ctrl+shift+p",    //for windows users
+      "mac": {
+        "key": "cmd+shift+p"  // for mac users
+      },
     "command": "editor.action.insertSnippet",
     "args": {
         "snippet": "const ${1:promiseName} = new Promise((resolve, reject) => {\n\t// Additional code here\n\n\tif (${2:metCondition}){\n\tresolve(${3:passGoodResult}); //Passes data along to .then\n\t}\n\telse if (${4:failedCondition}){ //Passes data to along .catch\n\treject(error, ${5:passBadResult});\n\t}\n});"
@@ -122,7 +157,10 @@
   },//JS 14 ---------------------------------------------------------------------------------------
   { 
     "description": "Creates a template for a completing a promise",
-    "key": "ctrl+shift+[",
+    "key": "ctrl+shift+[",    //for windows users
+      "mac": {
+        "key": "cmd+shift+["  // for mac users
+      },
     "command": "editor.action.insertSnippet",
     "args": {
         "snippet": "${1:promiseName}\n.then((${2:goodResult}) => {\nconsole.log('Promise Resolved:', ${2:goodResult});\n// Your code here\n\n})\n.catch((error, ${3:badResult}) => {\nconsole.error('Promise Rejected:', badResult || error.message);\n});"
@@ -130,13 +168,16 @@
   },//JS 15 ---------------------------------------------------------------------------------------
   
 
-    //placeholder   Create a template for try-catch block *coming soon*
+    //placeholder  -  Create a template for try-catch block *coming soon*
 
 
   //JS 16 ---------------------------------------------------------------------------------------
   {
     "description": "Creates a template for an AJAX request for async operations",
-    "key": "ctrl+shift+j",
+    "key": "ctrl+shift+j",   //for windows users
+      "mac": {
+        "key": "cmd+shift+j" // for mac users
+      },
     "command": "editor.action.insertSnippet",
     "args": {
         "snippet": "$.ajax({\n\turl: `${1:/route}`,\n\tmethod: '${2:GET}',  // HTTP methods are: 'GET', 'POST', 'PUT', 'DELETE'\n\tsuccess: function(dataOnSuccess){\n\t\tconsole.log(`$.ajax GET request came through. Data is: `, dataOnSuccess);\n\t\t// Code to run on successful GET request...\n\n\t\t//If using a POST request\n\t\tconsole.log(`$.ajax POST the following data to our '${this.url}' route:\\n`, this.data);\n\t},\n\terror: function(error){\n\t\tconsole.error(`$.ajax ${this.method} request error on route: '${this.url}'\\nDetails:`, error);\n\t}\n});"
@@ -144,7 +185,10 @@
   },//JS 17 ---------------------------------------------------------------------------------------
   {
     "description": "Creates a template for a jQuery event listener on an HTML element, select what kind of event you want it to listen to as well",
-    "key": "ctrl+shift+l",
+    "key": "ctrl+shift+l",   // for windows users
+      "mac": {
+        "key": "cmd+shift+l" // for mac users
+      },
     "command": "editor.action.insertSnippet",
     "args": {
         "snippet": "$('${1:.HTML-element}').on('${2:click}', function(event){\n\tconsole.log(`Event listener registered a ${2:click} on our ${1:.HTML-element} element!`);\n\tconsole.log(`Details on this event:\\n`, event);\n\n\t// Code that runs on event listener trigger\n\tevent.preventDefault(); // Optional, delete it if not required\n\n\n});"
@@ -163,7 +207,10 @@
   //HTML MD 01 -----------------------------------------------------------------------------------
   {
     "description": "Wraps any selected text in angled brackets for HTML and markdown and lets you define the element tag. (SEPARATES LINES)",
-    "key": "ctrl+shift+w",
+    "key": "ctrl+shift+w",   // for windows users
+      "mac": {
+        "key": "cmd+shift+w" // for mac users
+      },
     "command": "editor.action.insertSnippet",
     "args": {
         "snippet": "<${1:elementType}${0}>\n\t$TM_SELECTED_TEXT\n</${1:elementType}>"
@@ -171,7 +218,10 @@
   },//HTML MD 02 -----------------------------------------------------------------------------------
   {
     "description": "Wraps any selected text in angled brackets for HTML and markdown and lets you define the tag. (INLINE)",
-    "key": "ctrl+shift+q",
+    "key": "ctrl+shift+q",   // for windows users
+      "mac": {
+        "key": "cmd+shift+q" // for mac users
+      },
     "command": "editor.action.insertSnippet",
     "args": {
         "snippet": "<${1:elementType}>$TM_SELECTED_TEXT</${1:elementType}>"
@@ -185,7 +235,10 @@
   //CSS 01 ----------------------------------------------------------------------------------------
   {
     "description": "Creates a border around the HTML element, useful for determining the element size and its child element spacing",
-    "key": "ctrl+shift+b",
+    "key": "ctrl+shift+b",   // for windows users
+      "mac": {
+        "key": "cmd+shift+c" // for mac users
+      },
     "command": "editor.action.insertSnippet",
     "args": {
         "snippet": "border: 3px dashed ${1:limegreen};"
@@ -193,7 +246,10 @@
   },//CSS 02 --------------------------------------------------------------------------------------
   {
     "description": "Applies display:flex to make a flex container on the element, and centers the child elements vertically and horizontally",
-    "key": "ctrl+shift+f",
+    "key": "ctrl+shift+f",   // for windows users
+      "mac": {
+        "key": "cmd+shift+f" // for mac users
+      },
     "command": "editor.action.insertSnippet",
     "args": {
         "snippet": "display: flex;\njustify-content: center;  /* Aligns child elements horizontally (left and right) */\nalign-items: center;      /* Aligns child elements vertically (up and down) */"
@@ -205,13 +261,19 @@
 
   // Disables default shortcuts that are annoying and close VSC without warning -------------------
   {
-    "key": "ctrl+shift+w",
+    "key": "ctrl+shift+w",  // for windows users
+    "mac": {
+      "key": "cmd+shift+w"  // for mac users
+    },
     "command": "-workbench.action.closeWindow"
   },
   {
-    "key": "ctrl+w",
+    "key": "ctrl+w",  // for windows users
+    "mac": {
+      "key": "cmd+w"  // for mac users
+    },
     "command": "-workbench.action.closeActiveEditor"
   }
 ] 
 
-// src: https://github.com/ChrisPytel/handy-vsc-snippets    handy-vsc-snippets v1.3    2024_APR 25
+// src: https://github.com/ChrisPytel/handy-vsc-snippets    handy-vsc-snippets v1.4    2024_APR 25
