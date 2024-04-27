@@ -1,16 +1,14 @@
 // Place your key bindings in this file to override the defaults
 
 
-/*  You can configure whichever keys shortcuts you like by changing the "key" value. These are just ones that I like to use.
-    Note - Some useful shortcuts are already defined by VSC by default.
+/*  You can configure whichever keys shortcuts you like by changing the "key" value.
+    Note - Some useful shortcuts are already defined in VSC by default.
     ````````````````````````````````````````````````````````````````````
-    ctrl + shift + s = already assigned to File: Save as.                            My switch statement creator overrides this
-    ctrl + shift + r = already assigned to refactor.                                 My require statement creator overrides this
-    ctrl + z         = already assigned to undo previous action                      Useful to keep unmodified
+    ctrl + shift + s = already assigned to File: Save as.                            My switch statement creator overrides this   [JS 10]
+    ctrl + shift + r = already assigned to refactor.                                 My require statement creator overrides this  [JS 12]
+    ctrl + shift + f = already assigned to search a file in your directory           My flexbox centering script overrides this   [CSS 02]
     ctrl + shift + z = already assigned to redo action                               Useful to keep unmodified
-    ctrl + shift + v = already assigned to paste selection into terminal             Useful to keep unmodified
-    ctrl + shift + f = already assigned to search a file in your directory           Useful to keep unmodified
-    ctrl + shift + w = already assigned to close your VSC window without warning     Its really annoying, I recommend to remove it from your bindings via preferences/keyboard shortcuts
+    ctrl + z         = already assigned to undo previous action                      Useful to keep unmodified
 */
 
 [
@@ -25,7 +23,7 @@
   },//JS 02 ---------------------------------------------------------------------------------------
   {
     "description": "Generates a console.log() for checking a variable contents",
-    "key": "ctrl+shift+alt+c",
+    "key": "ctrl+shift+v",
     "command": "editor.action.insertSnippet",
     "when": "editorTextFocus",
     "args": {
@@ -33,12 +31,12 @@
     }
   }, //JS 03 --------------------------------------------------------------------------------------
   {
-    "description": "Generates a console.log() for checking a variables datatype",
+    "description": "Generates a console.log() with details on a variables datatype, time created, and its contents",
     "key": "ctrl+shift+d",
     "command": "editor.action.insertSnippet",
     "when": "editorTextFocus",
     "args": {
-      "snippet": "console.log(`Datatype of ${1:variableToCheck} is: `, typeof ${1:variableToCheck});"
+      "snippet": "console.log(`Variable ${1:variableName} is datatype: `, typeof ${1:variableName},\n`\\nTime created:`, new Date(),\n`\\nAnd it contains:\\n`, ${1:variableName});"
     }
   },//JS 04 ---------------------------------------------------------------------------------------
   {
@@ -79,12 +77,12 @@
     "key": "ctrl+shift+i",
     "command": "editor.action.insertSnippet",
     "args": {
-      "snippet": "if (${1:condition1}) {\n\t${2:// Run this code}\n\t\n} else if (${3:condition2}) {\n\t${4:// If that doesnt resolve, run this instead}\n\t\n} else {\n\t${5:// Otherwise, run this code}\n\t\n}"
+      "snippet": "if (${1:condition1}) {\n\t// Run this code\n\t\n} else if (${2:condition2}) {\n\t// If that doesnt resolve, run this instead\n\t\n} else {\n\t// Otherwise, run this code\n\t\n}"
     }
   },//JS 09 ---------------------------------------------------------------------------------------
   {
     "description": "Creates a template for a ternary operation",
-    "key": "ctrl+shift+t",
+    "key": "ctrl+shift+y",
     "command": "editor.action.insertSnippet",
     "args": {
       "snippet": "${1:condition} ? ${2:expressionIfTrue} : ${3:expressionIfFalse}"
@@ -103,7 +101,7 @@
     "key": "ctrl+shift+m",
     "command": "editor.action.insertSnippet",
     "args": {
-      "snippet": "const ${1:newArrayName} = ${2:originalArray}.map(${3:element} => {\n\treturn ${3:element} ${4://Some operation to do over each element};\n});"
+      "snippet": "const ${1:newArrayName} = ${2:originalArray}.map(element => {\n\treturn element ${4:/*Some operation to do over each element*/};\n});"
     }
   },//JS 12 ---------------------------------------------------------------------------------------
     {
@@ -127,12 +125,12 @@
     "key": "ctrl+shift+[",
     "command": "editor.action.insertSnippet",
     "args": {
-        "snippet": "${1:promiseName}.then((${2:goodResult}) => {\nconsole.log('Promise Resolved:', ${2:goodResult});\n}).catch((error, ${3:badResult}) => {\nconsole.error('Promise Rejected:', error.message);\n});"
+        "snippet": "${1:promiseName}.then((${2:goodResult}) => {\nconsole.log('Promise Resolved:', ${2:goodResult});\n// Your code here\n\n}).catch((error, ${3:badResult}) => {\nconsole.error('Promise Rejected:', badResult || message);\n});"
     }
   },//JS 15 ---------------------------------------------------------------------------------------
   
 
-    //placeholder   15. Generate a template for a returning promise chain *coming soon*
+    //placeholder   Create a template for try-catch block *coming soon*
 
 
   //JS 16 ---------------------------------------------------------------------------------------
@@ -151,29 +149,35 @@
     "args": {
         "snippet": "$('${1:.HTML-element}').on('${2:click}', function(event){\n\tconsole.log(`Event listener registered a ${2:click} on our ${1:.HTML-element} element!`);\n\tconsole.log(`Details on this event:\\n`, event);\n\n\t// Code that runs on event listener trigger\n\tevent.preventDefault(); // Optional, delete it if not required\n\n\n});"
     }
-  },
+  },//JS 18 ---------------------------------------------------------------------------------------
+  
+
+  //placeholder   Create a template for a PG pool query *coming soon*
 
 
 
 
-  //HTML MD 01 ------------------------------------------------------------------------------------
+
+
+
+  //HTML MD 01 -----------------------------------------------------------------------------------
   {
-    "description": "Wraps any selected text in angled brackets for HTML and markdown. <> and </>",
-    "key": "ctrl+shift+h",
+    "description": "Wraps any selected text in angled brackets for HTML and markdown and lets you define the element tag. (SEPARATES LINES)",
+    "key": "ctrl+shift+w",
     "command": "editor.action.insertSnippet",
     "args": {
-        "snippet": "<$TM_SELECTED_TEXT></$TM_SELECTED_TEXT>"
+        "snippet": "<${1:elementType}${0}>\n\t$TM_SELECTED_TEXT\n</${1:elementType}>"
     }
-  }
-  ,//HTML MD 02 -----------------------------------------------------------------------------------
+  },//HTML MD 02 -----------------------------------------------------------------------------------
   {
-    "description": "Wraps any selected text in opening and closing angled brackets for HTML and markdown and lets you define the element tag.",
-    "key": "ctrl+shift+w",
+    "description": "Wraps any selected text in angled brackets for HTML and markdown and lets you define the tag. (INLINE)",
+    "key": "ctrl+shift+q",
     "command": "editor.action.insertSnippet",
     "args": {
         "snippet": "<${1:elementType}>$TM_SELECTED_TEXT</${1:elementType}>"
     }
   },
+
 
 
 
@@ -184,7 +188,7 @@
     "key": "ctrl+shift+b",
     "command": "editor.action.insertSnippet",
     "args": {
-        "snippet": " border: 3px dashed ${1:limegreen;}>"
+        "snippet": "border: 3px dashed ${1:limegreen};"
     }
   },//CSS 02 --------------------------------------------------------------------------------------
   {
@@ -210,4 +214,4 @@
   }
 ] 
 
-// src: https://github.com/ChrisPytel/handy-vsc-snippets    handy-vsc-snippets v4.1    2024_MAR_31 Easter Update
+// src: https://github.com/ChrisPytel/handy-vsc-snippets    handy-vsc-snippets v1.3    2024_APR 25
