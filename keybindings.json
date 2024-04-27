@@ -36,7 +36,7 @@
     "command": "editor.action.insertSnippet",
     "when": "editorTextFocus",
     "args": {
-      "snippet": "console.log(`Variable ${1:variableName} is datatype: `, typeof ${1:variableName},\n`\\nTime created:`, new Date(),\n`\\nAnd it contains:\\n`, ${1:variableName});"
+      "snippet": "console.log(`Our ${1:variableName} is datatype: `, typeof ${1:variableName},\n`\\nTime created:`, new Date(),\n`\\nAnd it contains:\\n`, ${1:variableName});"
     }
   },//JS 04 ---------------------------------------------------------------------------------------
   {
@@ -117,7 +117,7 @@
     "key": "ctrl+shift+p",
     "command": "editor.action.insertSnippet",
     "args": {
-        "snippet": "const ${1:promiseName} = new Promise((resolve, reject) => {\n\t// Your code here\n\n\tif (${2:metCondition}){\n\tresolve(${3:passGoodResult});\n\t}\n\telse if (${4:failedCondition}){\n\treject(error, ${5:passBadResult});\n}\n});"
+        "snippet": "const ${1:promiseName} = new Promise((resolve, reject) => {\n\t// Additional code here\n\n\tif (${2:metCondition}){\n\tresolve(${3:passGoodResult}); //Passes data along to .then\n\t}\n\telse if (${4:failedCondition}){ //Passes data to along .catch\n\treject(error, ${5:passBadResult});\n\t}\n});"
     }
   },//JS 14 ---------------------------------------------------------------------------------------
   { 
@@ -125,7 +125,7 @@
     "key": "ctrl+shift+[",
     "command": "editor.action.insertSnippet",
     "args": {
-        "snippet": "${1:promiseName}.then((${2:goodResult}) => {\nconsole.log('Promise Resolved:', ${2:goodResult});\n// Your code here\n\n}).catch((error, ${3:badResult}) => {\nconsole.error('Promise Rejected:', badResult || message);\n});"
+        "snippet": "${1:promiseName}\n.then((${2:goodResult}) => {\nconsole.log('Promise Resolved:', ${2:goodResult});\n// Your code here\n\n})\n.catch((error, ${3:badResult}) => {\nconsole.error('Promise Rejected:', badResult || error.message);\n});"
     }
   },//JS 15 ---------------------------------------------------------------------------------------
   
